@@ -15,16 +15,16 @@ import static org.testng.Assert.assertEquals;
 
 public class CBTrainingWithJsonPath {
 
-    @BeforeClass
-    public void beforeclass(){
-        baseURI= ConfigurationReader.get("cbt_api_url");
-    }
+//    @BeforeClass
+//    public void beforeclass(){
+//        baseURI= ConfigurationReader.get("cbt_api_url");
+//    }
 
     @Test
     public void test1(){
         Response response = given().accept(ContentType.JSON)
                 .and().pathParam("id", 17982)
-                .when().get("/student/{id}");
+                .when().get("http://api.cybertektraining.com/student/{id}");
 
         //verify status code
         assertEquals(response.statusCode(),200);
