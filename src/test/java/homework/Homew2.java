@@ -5,11 +5,12 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.List;
+import java.util.Locale;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
-public class Hw2 {
+public class Homew2 {
     @Test
     public void test1(){
         given().accept(ContentType.JSON)
@@ -43,7 +44,7 @@ public class Hw2 {
                 .when().get("http://34.228.41.120:8000/api/spartans/search");
         List<String> path = response.path("content.name");
         for (String s : path) {
-            Assert.assertTrue(s.contains("r"));
+            Assert.assertTrue(s.toLowerCase().contains("r"));
         }
 
 

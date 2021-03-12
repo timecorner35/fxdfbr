@@ -13,7 +13,7 @@ import static org.hamcrest.Matchers.*;
 
 import static io.restassured.RestAssured.*;
 
-public class Hw {
+public class Homew {
 static {
     baseURI = "http://54.221.67.136:1000/ords/hr";
 }
