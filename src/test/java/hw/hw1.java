@@ -10,14 +10,14 @@ public class hw1 {
     static {baseURI="http://34.228.41.120:1000/ords/hr";}
     @Test
     public void test1(){
-        given().accept(ContentType.JSON)
-                .and().queryParam("q","{\"country_id\":\"US\"}")
-                .when().get("/countries")
+                given().accept(ContentType.JSON)
+                .and().pathParam("country_id","US")
+                .when().get("/countries/{country_id}")
                 .then().statusCode(200)
-                .and().contentType("application/json")
-                .and().body("items.country_id[0]",equalTo("US"))
-                .and().body("items.country_name[0]",equalTo("United States of America"))
-                .and().body("items.region_id[0]",equalTo(2));
+                .and().contentType(equalTo("application/json"))
+                .and().body("country_id",equalTo("US"),
+                "country_name",equalTo("United States of America"),
+                "region_id",equalTo(2));
     }
 
     @Test
